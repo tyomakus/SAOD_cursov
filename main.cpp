@@ -2,7 +2,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <iostream>
-#include<graphics.h>
+//#include <graphics.h>
 #include<ctime>
 
 using namespace std;
