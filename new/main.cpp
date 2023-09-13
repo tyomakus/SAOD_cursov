@@ -56,10 +56,10 @@ void list (spis *head) {
 		if (i%20==0){
 				cout<<"Print 20 more? (1/0)\n";
 				cin>>g;
-				cout<<"\t\t"<<"FIO"<<"\t\t"<<"  |N otdela"<<"     |Doljnost"<<"\t"<<"      |Date of birth    |"<<endl;
 				if (g==0){
 					break;
 				}
+				cout<<"\t\t"<<"FIO"<<"\t\t"<<"  |N otdela"<<"     |Doljnost"<<"\t"<<"      |Date of birth    |"<<endl;
 		}
 	}
 }
