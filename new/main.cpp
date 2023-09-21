@@ -112,6 +112,20 @@ int LessDate(int p,int q)
        else return 0;
     }
 
+int Compare(char s1[],char s2[],int number)
+    {
+    int i;
+    i=0;
+    do
+      {
+      if (s1[i]<s2[i]) return 1;
+         else if (s1[i]>s2[i]) return 0;
+              else i++;
+      }
+    while (i<number);
+    return 2;
+    }
+
 int CompareDate(char s1[],char s2[])
     {
     char p1[2],p2[2];
@@ -130,8 +144,52 @@ int CompareDate(char s1[],char s2[])
     return k;
     }
 
+void QuickSort(int L,int R)
+{
+ int x,i,j,t;
+ x=day[L]; i=L; j=R;
+ while (i<=j)
+       {
+       while (LessDayAndFio(day[i],x)) i++;
+       while (LessDayAndFio(x,day[j])) j--;
+       if (i<=j)
+          {
+          t=day[i];
+          day[i]=day[j];
+          day[j]=t;
+          i++; j--;
+          }
+       }
+ if (L<j) QuickSort(L,j);
+ if (R>i) QuickSort(i,R);
+}
 
 */
+
+void quickSort(record** index, int size, int left, int right)
+{
+    int i = left;
+    int j = right;
+    string pivot = index[(left + right) / 2]->title;
+    while (i <= j)
+    {
+        while (index[i]->title < pivot) i++;
+        while (index[j]->title > pivot) j--;
+        if (i <= j)
+        {
+            swap(index[i], index[j]);
+            i++;
+            j--;
+        }
+    }
+
+    if (i < right)
+        quickSort(index, size, i, right);
+    if (j > left)
+        quickSort(index, size, left, j);
+}
+
+
 spis *DigitalSort(spis *&S) {
 	int j,i,g,k;
  	spis *p;

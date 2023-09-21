@@ -321,19 +321,8 @@ void Paintmenu(void)
   window(21,5,63,19);
   textbackground(7);
   textcolor(15);
-  cprintf (" ====================================================================" \n\r");
-  cprintf (" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf(" �                                      � \n\r");
-  cprintf("  ==================================================================== ");
+  
+
 };
 
 void Printmenu(int index)
