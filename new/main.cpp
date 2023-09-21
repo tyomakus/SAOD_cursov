@@ -165,7 +165,7 @@ void QuickSort(int L,int R)
 }
 
 */
-
+/*
 void quickSort(record** index, int size, int left, int right)
 {
     int i = left;
@@ -188,7 +188,7 @@ void quickSort(record** index, int size, int left, int right)
     if (j > left)
         quickSort(index, size, left, j);
 }
-
+*/
 
 spis *DigitalSort(spis *&S) {
 	int j,i,g,k;
