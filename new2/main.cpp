@@ -1,8 +1,8 @@
-#include<stdio.h>
-#include<conio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<math.h>
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
 #define N 4000
 #define n 256
 
@@ -321,8 +321,8 @@ void Paintmenu(void)
   window(21,5,63,19);
   textbackground(7);
   textcolor(15);
-  cprintf(" ====================================================================" \n\r");
-  cprintf(" �                                      � \n\r");
+  cprintf (" ====================================================================" \n\r");
+  cprintf (" �                                      � \n\r");
   cprintf(" �                                      � \n\r");
   cprintf(" �                                      � \n\r");
   cprintf(" �                                      � \n\r");
@@ -334,7 +334,7 @@ void Paintmenu(void)
   cprintf(" �                                      � \n\r");
   cprintf(" �                                      � \n\r");
   cprintf("  ==================================================================== ");
-}
+};
 
 void Printmenu(int index)
 { char menu[5][22]=
@@ -499,8 +499,8 @@ void PrintKod()
      printf("Srednyaya dlina=%f",srdl);
      }
 
-main()
-{ int i,key,index;
+int main()
+{int i, key,index;
   unsigned char ch;
   randomize();
   while (1)
@@ -508,7 +508,7 @@ main()
   textbackground(0);
   clrscr();
   textcolor(0);
-  _setcursortype(_NOCURSOR);
+  /*_setcursortype(_NOCURSOR);*/
   index=Number();
   switch(index)
            {

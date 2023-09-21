@@ -95,19 +95,54 @@ void SDP_nReq(tree D, Vertex*& Root_1) {
 	}
 }
 
+/*
+int LessDayAndFio(int p,int q)
+    {
+    if (mas[p]->dob[0]<mas[q]->dob[0]) return 1;
+       else if (mas[p]->dob[0]>mas[q]->dob[0]) return 0;
+            else if (mas[p]->dob[1]<mas[q]->dob[1]) return 1;
+                 else if (mas[p]->dob[1]>mas[q]->dob[1]) return 0;
+                      else if (Compare(mas[p]->fio,mas[q]->fio,33)==1) return 1;
+                           else return 0;
+    }
+
+int LessDate(int p,int q)
+    {
+    if (CompareDate(dop[p]->data->dob,dop[q]->data->dob)==1) return 1;
+       else return 0;
+    }
+
+int CompareDate(char s1[],char s2[])
+    {
+    char p1[2],p2[2];
+    int i=7,k;
+    while (1)
+       {
+       p1[0]=s1[i-1];
+       p1[1]=s1[i];
+       p2[0]=s2[i-1];
+       p2[1]=s2[i];
+       k=Compare(p1,p2,2);
+       if (k==1 || k==0) break;
+          else i-=3;
+       if (i==1 && k==2) break;
+       }
+    return k;
+    }
 
 
+*/
 spis *DigitalSort(spis *&S) {
 	int j,i,g,k;
  	spis *p;
  	int KDI[]={1,0,4,3,7,6};
  	tle Q[256];
- 	for (j=0;j<6;j++) { // инициализация очередей Q	
+ 	for (j=0;j<6;j++) { // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Q	
    		for (i=0;i<256;i++)
     		Q[i].tail=(spis *)&Q[i].head;
    		p=S;
    	//	cout<<"done1"<<endl;
-   		while (p) {//расстановка элементов из списка S в очереди Q по j - ой цифре
+   		while (p) {//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ S пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Q пїЅпїЅ j - пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     		g=p->data->d[KDI[j]];
     	//	cout<<g<<endl;
       		Q[g].tail->next=p;
@@ -115,7 +150,7 @@ spis *DigitalSort(spis *&S) {
       		p=p->next;
       		//cout<<"done-"<<j<<endl;
     	}
-   		p=(spis*)&S; // соединение очередей Q в список S 
+   		p=(spis*)&S; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Q пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ S 
    		for (i=0;i<256;i++) {
     		if ( Q[i].tail!=(spis *)&Q[i].head) {
        			p->next=Q[i].head;
