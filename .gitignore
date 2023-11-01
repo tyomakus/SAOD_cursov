@@ -1042,3 +1042,4 @@ dkms.conf
 # Raspberry Pi Pico Object file
 *.uf2
 # Raspberry Pi Pico disassembler file
+.vscode
