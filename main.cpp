@@ -1,3 +1,4 @@
+//Добавь меню, которое позволит листать по 20 записей, сортировать базу данных, искать по ключу (все эти функции уже есть, необходимо сделать только меню)
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
@@ -93,6 +94,7 @@ int main()
     system("chcp 866>nul");
     //setlocale(LC_CTYPE, "Russian");
     FILE *fp;
+
     fp = fopen("testBase2.dat", "rb");
     record1 mas[4000] = {0};
     int i = 0, sum = 0;
