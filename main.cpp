@@ -63,39 +63,48 @@ int compare(const Record &record1, const Record &record2) {
     return strcomp(record1.fio, record2.fio) * -1;
 }
 
-void Swap(Record *array[], int i, int j) {
-    Record *temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+int diff(const Record &a, const Record &b) {
+    int diff = 0;
+    diff = a.department - b.department;
+    if (diff == 0) {
+        diff = strcomp(a.fio, b.fio);
+    }
+    return diff;
 }
 
-int Partition(Record *array[], int low, int high) {
-    Record *pivot = array[high];
-    int i = low - 1;
-
-    for (int j = low; j < high; j++) {
-        if (compare(*array[j], *pivot) == -1) {
-            i++;
-            Swap(array, i, j);
+void qSort(Record *array[], int L, int R) {
+    while (L < R) {
+        Record *x = array[(L + R) / 2];
+        int i = L, j = R;
+        while (i < j) {
+            while (diff(*array[i], *x) < 0) {
+                ++i;
+            }
+            while (diff(*array[j], *x) > 0) {
+                --j;
+            }
+            if (i <= j) {
+                Record *temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                ++i;
+                --j;
+            }
+        }
+        if (j - L < R - i) {
+            qSort(array, L, j);
+            L = i;
+        } else {
+            qSort(array, i, R);
+            R = j;
         }
     }
-
-    Swap(array, i + 1, high);
-    return i + 1;
 }
 
-void QuickSort(Record *array[], int low, int high) {
-    if (low < high) {
-        int pivotIndex = Partition(array, low, high);
-
-        QuickSort(array, low, pivotIndex - 1);
-        QuickSort(array, pivotIndex + 1, high);
-    }
+void quickSort(Record *array[], const int N) {
+    qSort(array, 0, N - 1);
 }
 
-void PerformQuickSort(Record *array[], int n) {
-    QuickSort(array, 0, n - 1);
-}
 
 void load_to_memory(Record records[]) {
     ifstream file("testBase2.dat", ios::binary);
@@ -532,6 +541,6 @@ int main() {
     make_index_array(records, unsorted_ind_arr);
     Record *sorted_ind_arr[N];
     make_index_array(records, sorted_ind_arr);
-    PerformQuickSort(sorted_ind_arr, N);
+    quickSort(sorted_ind_arr, N);
     mainloop(unsorted_ind_arr, sorted_ind_arr);
 }
